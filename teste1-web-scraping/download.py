@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
 def baixar_pdf(url, nome_arquivo, pasta_destino):
+    nome_arquivo = nome_arquivo.rstrip(".")
 
     download_pdf = requests.get(url)
 
