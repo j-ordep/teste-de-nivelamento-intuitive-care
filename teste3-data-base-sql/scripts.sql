@@ -1,6 +1,6 @@
 CREATE TABLE operadoras (
     cnpj VARCHAR(20) PRIMARY KEY,
-    nome_operadora VARCHAR(255),
+    nome_fantasia VARCHAR(255),
     tipo_plano VARCHAR(100),
     status_operadora VARCHAR(50),
     data_cadastro DATE
@@ -14,13 +14,13 @@ CREATE TABLE demonstrativos_financeiros (
     despesa NUMERIC(15,2)
 );
 
-\COPY operadoras(cnpj, nome_operadora, status_operadora, data_cadastro)
+COPY operadoras(cnpj, nome_operadora, status_operadora, data_cadastro)
 FROM 'c:/teste-de-nivelamento/teste3-data-base-sql/dados-das-operadoras/Relatorio_cadop.csv' -- caso necessário, ajuste o caminho do arquivo CSV
 DELIMITER ';'
 CSV HEADER
 ENCODING 'UTF8';
 
-\COPY demonstrativos_financeiros(cnpj_operadora, data_referencia, categoria, despesa)
+COPY demonstrativos_financeiros(cnpj_operadora, data_referencia, categoria, despesa)
 FROM 'c:/teste-de-nivelamento/teste3-data-base-sql/repositorio/1T2023.csv' -- caso necessário, ajuste o caminho do arquivo CSV
 DELIMITER ';'
 CSV HEADER
